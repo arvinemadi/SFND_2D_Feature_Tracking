@@ -24,10 +24,12 @@ Detector: SHITOMASI - Descriptor: BRISK
 <img src="images/Detector(SHITOMASI)_Descriptor(BRISK).PNG" width="820" height="248" />
 
 In this project the goal was to build the feature tracking and test various detector / descriptor combinations to see which ones perform best. The table below could be a good guide when selecting the detector and descriptor for an application.
-<img src="images/Table_Detector_Descriptor.PNG" width="520" height="248" />
+
+<img src="images/Table_Detector_Descriptor.PNG" width="420" height="248" />
 
 Table below shows the summary of the performance. It shows the stability of the detectors over 10 images, their compute times per point, and also the descriptors compute time per point. The number of matched points for each descriptor detector combinatioin has also been compared and analyzed but is not shown in the table.
-<img src="images/Table_Result_Detectors.PNG" width="620" height="248" />
+
+<img src="images/Table_Result_Detectors.PNG" width="520" height="270" />
 
 ## Dependencies for Running Locally
 1. cmake >= 2.8
