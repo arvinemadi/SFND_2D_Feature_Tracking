@@ -31,6 +31,11 @@ Table below shows the summary of the performance. It shows the stability of the 
 
 <img src="images/Table_Result_Detectors.PNG" width="520" height="270" />
 
+Useful literature:
+ - https://link.springer.com/content/pdf/10.1007/978-3-642-33718-5_17.pdf
+ - https://www.mdpi.com/1424-8220/20/15/4343
+
+
 ## Dependencies for Running Locally
 1. cmake >= 2.8
  * All OSes: [click here for installation instructions](https://cmake.org/install/)
