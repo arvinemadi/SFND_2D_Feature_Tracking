@@ -10,7 +10,7 @@ The steps:
 * In the next part, focus on descriptor extraction and matching using brute force and also the FLANN approach. 
 * In the last part, test the various algorithms in different combinations and compare them with regard to some performance measures. 
 
-Roughly 42 options tested with 7 detectors options (SHITOMASI, HARRIS, FAST, BRISK, ORB, AKAZE, SIFT) and 6 descriptors (BRISK, BRIEF, ORB, FREAK, AKAZE, SIFT)
+Roughly 42 combinations tested with 7 detectors options (SHITOMASI, HARRIS, FAST, BRISK, ORB, AKAZE, SIFT) and 6 descriptors (BRISK, BRIEF, ORB, FREAK, AKAZE, SIFT)
 
 Exameples of the results:
 
@@ -23,11 +23,11 @@ Detector: ORB- Descriptor: BRIEF
 Detector: SHITOMASI - Descriptor: BRISK
 <img src="images/Detector(SHITOMASI)_Descriptor(BRISK).PNG" width="820" height="248" />
 
-In this sub-project the goal was to build the feature tracking and test various detector / descriptor combinations to see which ones perform best. The table below could be a good guide when selecting the detector and descriptor for an application.
-<img src="images/Table_Detector_Descriptor.PNG" width="820" height="248" />
+In this project the goal was to build the feature tracking and test various detector / descriptor combinations to see which ones perform best. The table below could be a good guide when selecting the detector and descriptor for an application.
+<img src="images/Table_Detector_Descriptor.PNG" width="520" height="248" />
 
 Table below shows the summary of the performance. It shows the stability of the detectors over 10 images, their compute times per point, and also the descriptors compute time per point. The number of matched points for each descriptor detector combinatioin has also been compared and analyzed but is not shown in the table.
-<img src="images/Table_Result_Detectors.PNG" width="820" height="248" />
+<img src="images/Table_Result_Detectors.PNG" width="620" height="248" />
 
 ## Dependencies for Running Locally
 1. cmake >= 2.8
