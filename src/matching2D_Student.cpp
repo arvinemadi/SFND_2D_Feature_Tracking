@@ -10,17 +10,13 @@ void matchDescriptors(std::vector<cv::KeyPoint> &kPtsSource, std::vector<cv::Key
     // configure matcher
     bool crossCheck = false;
     cv::Ptr<cv::DescriptorMatcher> matcher;
-
     if (matcherType.compare("MAT_BF") == 0)
     {
         int normType = cv::NORM_HAMMING;
         if(descriptorType.compare("DES_HOG") == 0)
         {
             normType = cv::NORM_L2;
-            
         }
-
-        
         matcher = cv::BFMatcher::create(normType, crossCheck);
     }
     else if (matcherType.compare("MAT_FLANN") == 0)
@@ -30,20 +26,15 @@ void matchDescriptors(std::vector<cv::KeyPoint> &kPtsSource, std::vector<cv::Key
             descSource.convertTo(descSource, CV_32F);
             descRef.convertTo(descRef, CV_32F);
         }
-
         matcher = cv::DescriptorMatcher::create(cv::DescriptorMatcher::FLANNBASED);
-
     }
-
     // perform matching task
     double t = (double)cv::getTickCount();
     if (selectorType.compare("SEL_NN") == 0)
     { // nearest neighbor (best match)
-        
         matcher->match(descSource, descRef, matches); // Finds the best match for each descriptor in desc1
         t = ((double)cv::getTickCount() - t) / cv::getTickFrequency();
         cout<<" NN with n = " << matches.size() << " done in " << 1000 * t / 1.0 << " ms" << endl;
-
     }
     else if (selectorType.compare("SEL_KNN") == 0)
     { // k nearest neighbors (k=2)
