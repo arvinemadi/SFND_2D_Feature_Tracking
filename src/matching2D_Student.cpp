@@ -1,6 +1,7 @@
+/* Code completed by Arvin.Emadi@Gmail.com*/
+/* Original uncompleted code from udacity - link of github at the readme*/
 #include <numeric>
 #include "matching2D.hpp"
-
 using namespace std;
 
 // Find best matches for keypoints in two camera images based on several matching methods
@@ -155,10 +156,6 @@ void detKeypointsHarris(vector<cv::KeyPoint> &keypoints, cv::Mat &img, bool bVis
     int apertureSize = 3;
     int minResponse = 100;
     double maxOverlap = 0.0; // max. permissible overlap between two features in %
-    //double minDistance = (1.0 - maxOverlap) * blockSize;
-    //int maxCorners = img.rows * img.cols / max(1.0, minDistance); // max. num. of keypoints
-
-    //double qualityLevel = 0.01; // minimal accepted quality of image corners
     double k = 0.04;
 
     // Apply corner detection
@@ -171,10 +168,7 @@ void detKeypointsHarris(vector<cv::KeyPoint> &keypoints, cv::Mat &img, bool bVis
     cv::normalize(dst, dst_norm, 0, 255, cv::NORM_MINMAX, CV_32FC1, cv::Mat());
     cv::convertScaleAbs(dst_norm, dst_norm_scaled);
 
-    
-    
-    //cv::goodFeaturesToTrack(img, corners, maxCorners, qualityLevel, minDistance, cv::Mat(), blockSize, false, k);
-
+    // manual algorithm to show the principle of overlap and nonmax suppression - can also use openCV built in
     // add corners to result vector
     for(int j = 0; j < dst_norm.rows; j++)
     {
@@ -228,11 +222,9 @@ void detKeypointsHarris(vector<cv::KeyPoint> &keypoints, cv::Mat &img, bool bVis
 
 void detKeypointsModern(std::vector<cv::KeyPoint> &keypoints, cv::Mat &img, std::string detectorType, bool bVis)
 {
-    
-    
+    //Use openCV built in modern detectors
     cv::Ptr<cv::FeatureDetector> detector;
     double t = (double)cv::getTickCount();
-
     if (detectorType.compare("FAST") == 0)
     {
         detector  = cv::FastFeatureDetector::create(30, true, cv::FastFeatureDetector::TYPE_9_16);
@@ -280,8 +272,6 @@ void detKeypointsModern(std::vector<cv::KeyPoint> &keypoints, cv::Mat &img, std:
 
     t = ((double)cv::getTickCount() - t) / cv::getTickFrequency();
     cout << detectorType << " detection with n=" << keypoints.size() << " keypoints in " << 1000 * t / 1.0 << " ms" << endl;
-
-
     // visualize results
     if (bVis)
     {
@@ -292,5 +282,4 @@ void detKeypointsModern(std::vector<cv::KeyPoint> &keypoints, cv::Mat &img, std:
         imshow(windowName, visImage);
         cv::waitKey(0);
     }
-
 }
